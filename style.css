@@ -1,0 +1,115 @@
+:root {
+    --bg: #0a0a0c;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --primary: #6366f1;
+    --accent: #a855f7;
+    --text: #f8fafc;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.background-blur {
+    position: fixed;
+    top: -10%; left: -10%;
+    width: 120%; height: 120%;
+    background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, transparent 50%);
+    z-index: -1;
+    filter: blur(80px);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 60px 40px;
+}
+
+h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.large-card { grid-column: span 2; }
+.wide-card { grid-column: span 3; }
+
+.tags span {
+    background: rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+.stat-group {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .large-card, .wide-card { grid-column: span 1; }
+    h1 { font-size: 2rem; }
+}
